@@ -6,7 +6,7 @@
 void printString(char* String);             // Prints a string in the screen
 void readString(char* String);              // Reads a string from the input in the keyboard
 void readSector(char* buffer, int sector);  // Reads a sector of the image in the disk.
-//void handleInterrupt21(int ax, int bx, int cx, int dx); // For the execution of interrupt21
+void handleInterrupt21(int ax, int bx, int cx, int dx); // For the execution of interrupt21
 int mod(int a, int b);       // For Calculating mod function
 char line[80];
 char buffer[512];
@@ -26,10 +26,10 @@ int main() {
 	printString("\r\n\0");
 	printString(buffer);                // related to step 3
 	printString("\r\n\0");
-	//makeInterrupt21();                  // related to step 4
-	//interrupt(0x21, 1, line, 0, 0);     // related to step 5
-	//printString("\r\n\0");
-	//interrupt(0x21, 0, line, 0, 0);     // related to step 5
+	makeInterrupt21();                  // related to step 4
+	interrupt(0x21, 1, line, 0, 0);     // related to step 5
+	printString("\r\n\0");
+	interrupt(0x21, 0, line, 0, 0);     // related to step 5
  	while(1) {
  		//todo
  	}
@@ -92,7 +92,7 @@ int mod(int a, int b) {
 	return a;
 }//-------------------------------------Modulo ends----------------------------------------->
 
-/*
+
 
 //-------------------------------------handleInterrupt21 Function---------------------------->
 void handleInterrupt21(int ax, int bx, int cx, int dx) {
@@ -108,4 +108,3 @@ void handleInterrupt21(int ax, int bx, int cx, int dx) {
 		printString("ERROR! Enter again...");
 	}
 }//-------------------------------------handleInterrupt21 ends------------------------------->
-*/
