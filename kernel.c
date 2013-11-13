@@ -4,11 +4,11 @@
 */
 
 void printString(char* String);             // Prints a string in the screen
-//void readString(char* String);              // Reads a string from the input in the keyboard
+void readString(char* String);              // Reads a string from the input in the keyboard
 //void readSector(char* buffer, int sector);  // Reads a sector of the image in the disk.
 //void handleInterrupt21(int ax, int bx, int cx, int dx); // For the execution of interrupt21
 //int mod(int a, int b);       // For Calculating mod function
-//char line[80];
+char line[80];
 //char buffer[512];
 
 //<------------------------------------  Main Function-------------------------------------->
@@ -16,11 +16,11 @@ void printString(char* String);             // Prints a string in the screen
 int main() {
 	
 	printString("Hello World\r\n\0");   // related to step 1    
-	//printString("Enter a line: \0");
-	//printString("\r\n\0");    
-	//readString(line);                   // related to step 2
-	//printString("\r\n\0");
-	//printString(line);                  // related to step 2
+	printString("Enter a line: \0");
+	printString("\r\n\0");    
+	readString(line);                   // related to step 2
+	printString("\r\n\0");
+	printString(line);                  // related to step 2
 	//printString("\r\n\0");
 	//readSector(buffer, 30);             // related to step 3
 	//printString("\r\n\0");
@@ -49,7 +49,7 @@ void printString(char* String) {
 
 
 //-------------------------------------readString Function---------------------------------->
-/*void readString(char* String) {
+void readString(char* String) {
 	int index = 0;
 	char c = 0;
 
@@ -73,7 +73,7 @@ void printString(char* String) {
 	}
 }//-------------------------------------readString ends------------------------------------->
 
-
+/*
 //-------------------------------------readSector Function---------------------------------->
 void readSector(char* buffer, int sector) {
 	int CL = mod(sector, 18);   
