@@ -5,11 +5,11 @@
 
 void printString(char* String);             // Prints a string in the screen
 void readString(char* String);              // Reads a string from the input in the keyboard
-//void readSector(char* buffer, int sector);  // Reads a sector of the image in the disk.
+void readSector(char* buffer, int sector);  // Reads a sector of the image in the disk.
 //void handleInterrupt21(int ax, int bx, int cx, int dx); // For the execution of interrupt21
-//int mod(int a, int b);       // For Calculating mod function
+int mod(int a, int b);       // For Calculating mod function
 char line[80];
-//char buffer[512];
+char buffer[512];
 
 //<------------------------------------  Main Function-------------------------------------->
 
@@ -21,11 +21,11 @@ int main() {
 	readString(line);                   // related to step 2
 	printString("\r\n\0");
 	printString(line);                  // related to step 2
-	//printString("\r\n\0");
-	//readSector(buffer, 30);             // related to step 3
-	//printString("\r\n\0");
-	//printString(buffer);                // related to step 3
-	//printString("\r\n\0");
+	printString("\r\n\0");
+	readSector(buffer, 30);             // related to step 3
+	printString("\r\n\0");
+	printString(buffer);                // related to step 3
+	printString("\r\n\0");
 	//makeInterrupt21();                  // related to step 4
 	//interrupt(0x21, 1, line, 0, 0);     // related to step 5
 	//printString("\r\n\0");
@@ -73,7 +73,7 @@ void readString(char* String) {
 	}
 }//-------------------------------------readString ends------------------------------------->
 
-/*
+
 //-------------------------------------readSector Function---------------------------------->
 void readSector(char* buffer, int sector) {
 	int CL = mod(sector, 18);   
@@ -92,7 +92,7 @@ int mod(int a, int b) {
 	return a;
 }//-------------------------------------Modulo ends----------------------------------------->
 
-
+/*
 
 //-------------------------------------handleInterrupt21 Function---------------------------->
 void handleInterrupt21(int ax, int bx, int cx, int dx) {
